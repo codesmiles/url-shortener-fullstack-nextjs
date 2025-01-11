@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import bgShortenDesktop from '../../images/bg-shorten-desktop.svg';
 import bgShortenMobile from '../../images/bg-shorten-mobile.svg';
+import { motion } from 'framer-motion';
 
 interface ShortenedLink {
   original: string;
@@ -38,7 +39,12 @@ const Shortener = () => {
   };
 
   return (
-    <div className="max-w-6xl mx-auto px-4">
+    <motion.div
+      initial={{ opacity: 0, x: -50 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="max-w-6xl mx-auto px-4"
+    >
       <div className="relative bg-[hsl(257,27%,26%)] p-6 md:p-10 rounded-lg -mt-20">
         {/* Background Images */}
         <div className="absolute inset-0 w-full h-full overflow-hidden rounded-lg">
@@ -47,7 +53,7 @@ const Shortener = () => {
               src={bgShortenDesktop}
               alt=""
               fill
-              style={{ objectFit: 'cover' }}
+              style={{ objectFit: "cover" }}
             />
           </div>
           <div className="md:hidden absolute inset-0">
@@ -55,13 +61,13 @@ const Shortener = () => {
               src={bgShortenMobile}
               alt=""
               fill
-              style={{ objectFit: 'cover' }}
+              style={{ objectFit: "cover" }}
             />
           </div>
         </div>
 
         {/* Form */}
-        <form 
+        <form
           onSubmit={handleSubmit}
           className="relative z-10 flex flex-col md:flex-row gap-4 md:gap-6"
         >
@@ -72,11 +78,13 @@ const Shortener = () => {
               value={url}
               onChange={(e) => setUrl(e.target.value)}
               className={`w-full px-4 py-3 rounded-lg ${
-                isError ? 'border-2 border-red-500 placeholder-red-500' : ''
+                isError ? "border-2 border-red-500 placeholder-red-500" : ""
               }`}
             />
             {isError && (
-              <p className="text-red-500 text-sm mt-1 italic">Please add a link</p>
+              <p className="text-red-500 text-sm mt-1 italic">
+                Please add a link
+              </p>
             )}
           </div>
           <button
@@ -90,7 +98,7 @@ const Shortener = () => {
 
       {/* Results */}
       <div className="mt-6 space-y-4">
-        {shortenedLinks.map((link, index) => (
+        {/* {shortenedLinks.map((link, index) => (
           <div
             key={index}
             className="bg-white rounded-lg p-4 flex flex-col md:flex-row md:items-center md:justify-between gap-3"
@@ -108,9 +116,9 @@ const Shortener = () => {
               </button>
             </div>
           </div>
-        ))}
+        ))} */}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

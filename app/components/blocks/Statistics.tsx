@@ -31,18 +31,21 @@ const Statistics = () => {
             title="Brand Recognition"
             description="Boost your brand recognition with each click. Generic links don't mean a thing. Branded links help instil confidence in your content."
             className="flex-1 z-10"
+            delay={0}
           />
           <StatCard
             icon={detailedRecords}
             title="Detailed Records"
             description="Gain insights into who is clicking your links. Knowing when and where people engage with your content helps inform better decisions."
             className="flex-1 z-10 md:mt-8"
+            delay={1}
           />
           <StatCard
             icon={fullyCustomizable}
             title="Fully Customizable"
             description="Improve brand awareness and content discoverability through customizable links, supercharging audience engagement."
             className="flex-1 z-10 md:mt-16"
+            delay={2}
           />
         </div>
       </div>
