@@ -83,6 +83,18 @@
   font-size: 2.5rem;
 }
 
+.hero_heading {
+  font-size: 2.25rem; /* text-4xl = 36px = 2.25rem */
+  line-height: 2.5rem;
+}
+
+@media screen and (min-width: 1024px) {
+  .hero_heading {
+    font-size: 3.75rem; /* text-6xl = 60px = 3.75rem */
+    line-height: 1;
+  }
+}
+
 @media screen and (max-width: 1024px) {
   .statistic_header{
     font-size: 2rem;
