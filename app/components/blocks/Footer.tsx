@@ -16,7 +16,7 @@ const Footer = () => {
   };
   const footerTitle = Object.keys(footerContent) as (keyof FooterContent)[];
   return (
-    <footer className="bg-[hsl(257,27%,26%)] text-white text-center md:text-left px-4 py-8">
+    <footer className="bg-[hsl(260,8%,14%)] text-white text-center md:text-left px-4 py-8">
       <div className="max-w-6xl mx-auto">
         <div className="md:flex md:justify-between md:items-start">
           <h1
