@@ -78,3 +78,13 @@
     @apply bg-background text-foreground;
   }
 }
+
+.statistic_header{
+  font-size: 2.5rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .statistic_header{
+    font-size: 2rem;
+  }
+}
