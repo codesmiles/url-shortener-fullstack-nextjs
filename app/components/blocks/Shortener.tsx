@@ -98,7 +98,7 @@ const Shortener = () => {
 
       {/* Results */}
       <div className="mt-6 space-y-4">
-        {/* {shortenedLinks.map((link, index) => (
+        {shortenedLinks.map((link, index) => (
           <div
             key={index}
             className="bg-white rounded-lg p-4 flex flex-col md:flex-row md:items-center md:justify-between gap-3"
@@ -116,7 +116,7 @@ const Shortener = () => {
               </button>
             </div>
           </div>
-        ))} */}
+        ))}
       </div>
     </motion.div>
   );
