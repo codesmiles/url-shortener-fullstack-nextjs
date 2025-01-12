@@ -1,9 +1,11 @@
-'use client';
-import React, { useState } from 'react';
-import Image from 'next/image';
-import bgShortenDesktop from '../../images/bg-shorten-desktop.svg';
-import bgShortenMobile from '../../images/bg-shorten-mobile.svg';
-import { motion } from 'framer-motion';
+"use client";
+import React, { useState } from "react";
+import Image from "next/image";
+import bgShortenDesktop from "../../images/bg-shorten-desktop.svg";
+import bgShortenMobile from "../../images/bg-shorten-mobile.svg";
+import { motion } from "framer-motion";
+import shortenerApi from "../ShortenAPI";
+import { useToast } from "@/hooks/use-toast";
 
 interface ShortenedLink {
   original: string;
@@ -11,9 +13,10 @@ interface ShortenedLink {
 }
 
 const Shortener = () => {
-  const [url, setUrl] = useState('');
+  const [url, setUrl] = useState("");
   const [isError, setIsError] = useState(false);
   const [shortenedLinks, setShortenedLinks] = useState<ShortenedLink[]>([]);
+  const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -22,19 +25,25 @@ const Shortener = () => {
       return;
     }
     setIsError(false);
+
+    const shortened: string | null = await shortenerApi({ url: url });
+    if (!shortened) {
+      setIsError(true);
+      return;
+    }
     
-    // Simulate API call (replace with actual API integration)
-    const shortened = `https://rel.ink/${Math.random().toString(36).substr(2, 6)}`;
     setShortenedLinks([{ original: url, shortened }, ...shortenedLinks]);
-    setUrl('');
+    setUrl("");
   };
 
   const copyToClipboard = async (text: string) => {
     try {
       await navigator.clipboard.writeText(text);
-      // You could add a state to show "Copied!" feedback
+      toast({
+        description: `Copied "${text}" to clipboard`,
+      });
     } catch (err) {
-      console.error('Failed to copy:', err);
+      console.error("Failed to copy:", err);
     }
   };
 
