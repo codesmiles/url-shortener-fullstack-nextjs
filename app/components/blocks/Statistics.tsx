@@ -1,11 +1,13 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import StatCard from "../StatCard";
 import Shortener from "./Shortener";
 import brandRecognition from "../../images/icon-brand-recognition.svg";
 import detailedRecords from "../../images/icon-detailed-records.svg";
 import fullyCustomizable from "../../images/icon-fully-customizable.svg";
 import { useToast } from "@/hooks/use-toast";
+import { motion } from "framer-motion";
+
 interface ShortenedLink {
   original: string;
   shortened: string;
@@ -15,8 +17,20 @@ const Statistics = () => {
   const { toast } = useToast();
   const [shortenedLinks, setShortenedLinks] = useState<ShortenedLink[]>([]);
   const [copyText, setCopyText] = useState("Copy");
+
+  useEffect(() => {
+    const savedLinks = localStorage.getItem('shortenedLinks');
+    if (savedLinks) {
+      setShortenedLinks(JSON.parse(savedLinks));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("shortenedLinks", JSON.stringify(shortenedLinks));
+  }, [shortenedLinks]);
+
   const handleNewLink = (original: string, shortened: string) => {
-    setShortenedLinks((prev) => [{ original, shortened }, ...prev]);
+    setShortenedLinks(prev => [{ original, shortened }, ...prev]);
   };
 
   const handleCopyLink = (link: string) => {
@@ -37,7 +51,10 @@ const Statistics = () => {
 
       <div className="max-w-6xl mx-auto px-4 mb-16">
         {shortenedLinks.map((link, index) => (
-          <div
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
             key={index}
             className="bg-white rounded-lg p-4 mb-4 flex flex-col md:flex-row items-center justify-between"
           >
@@ -55,7 +72,7 @@ const Statistics = () => {
                 {copyText}
               </button>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
 
