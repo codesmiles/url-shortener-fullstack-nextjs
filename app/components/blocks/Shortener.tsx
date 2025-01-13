@@ -5,18 +5,14 @@ import bgShortenDesktop from "../../images/bg-shorten-desktop.svg";
 import bgShortenMobile from "../../images/bg-shorten-mobile.svg";
 import { motion } from "framer-motion";
 import shortenerApi from "../ShortenAPI";
-import { useToast } from "@/hooks/use-toast";
 
-interface ShortenedLink {
-  original: string;
-  shortened: string;
+interface ShortenerProps {
+  onLinkShortened: (original: string, shortened: string) => void;
 }
 
-const Shortener = () => {
-  const [url, setUrl] = useState("");
+const Shortener = ({ onLinkShortened }: ShortenerProps) => {
+  const [url, setUrl] = useState("https://");
   const [isError, setIsError] = useState(false);
-  const [shortenedLinks, setShortenedLinks] = useState<ShortenedLink[]>([]);
-  const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -31,24 +27,14 @@ const Shortener = () => {
       setIsError(true);
       return;
     }
-    
-    setShortenedLinks([{ original: url, shortened }, ...shortenedLinks]);
-    setUrl("");
-  };
 
-  const copyToClipboard = async (text: string) => {
-    try {
-      await navigator.clipboard.writeText(text);
-      toast({
-        description: `Copied "${text}" to clipboard`,
-      });
-    } catch (err) {
-      console.error("Failed to copy:", err);
-    }
+    onLinkShortened(url, shortened);
+    setUrl("https://");
   };
 
   return (
     <motion.div
+      id="enterUrl"
       initial={{ opacity: 0, x: -50 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
@@ -96,36 +82,16 @@ const Shortener = () => {
               </p>
             )}
           </div>
-          <button
-            type="submit"
-            className="bg-[#2BD0D0] text-white px-6 py-3 rounded-lg hover:bg-opacity-70 transition-colors font-bold whitespace-nowrap"
-          >
-            Shorten It!
-          </button>
-        </form>
-      </div>
 
-      {/* Results */}
-      <div className="mt-6 space-y-4">
-        {shortenedLinks.map((link, index) => (
-          <div
-            key={index}
-            className="bg-white rounded-lg p-4 flex flex-col md:flex-row md:items-center md:justify-between gap-3"
-          >
-            <span className="text-gray-700 truncate border-b md:border-0 pb-3 md:pb-0">
-              {link.original}
-            </span>
-            <div className="flex flex-col md:flex-row gap-3 md:items-center">
-              <span className="text-[#2BD0D0]">{link.shortened}</span>
-              <button
-                onClick={() => copyToClipboard(link.shortened)}
-                className="bg-[#2BD0D0] text-white px-6 py-2 rounded-lg hover:bg-opacity-70 transition-colors"
-              >
-                Copy
-              </button>
-            </div>
+          <div>
+            <button
+              type="submit"
+              className="bg-[#2BD0D0] text-white px-6 py-3 rounded-lg hover:bg-opacity-70 transition-colors font-bold whitespace-nowrap"
+            >
+              Shorten It!
+            </button>
           </div>
-        ))}
+        </form>
       </div>
     </motion.div>
   );

@@ -1,8 +1,7 @@
 'use client'
-import React from 'react';
+import React,{ useRef } from 'react';
 import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
 
 interface StatCardProps {
   icon: string;

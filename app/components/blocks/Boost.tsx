@@ -1,8 +1,8 @@
-import React from 'react';
-import Image from 'next/image';
-import bgBoostDesktop from '../../images/bg-boost-desktop.svg';
-import bgBoostMobile from '../../images/bg-boost-mobile.svg';
-
+import React from "react";
+import Image from "next/image";
+import bgBoostDesktop from "../../images/bg-boost-desktop.svg";
+import bgBoostMobile from "../../images/bg-boost-mobile.svg";
+import Link from "next/link";
 const Boost = () => {
   return (
     <section className="relative bg-[hsl(257,27%,26%)] py-16 md:py-20">
@@ -14,7 +14,7 @@ const Boost = () => {
             src={bgBoostDesktop}
             alt=""
             fill
-            style={{ objectFit: 'cover' }}
+            style={{ objectFit: "cover" }}
             priority
           />
         </div>
@@ -24,7 +24,7 @@ const Boost = () => {
             src={bgBoostMobile}
             alt=""
             fill
-            style={{ objectFit: 'cover' }}
+            style={{ objectFit: "cover" }}
             priority
           />
         </div>
@@ -35,9 +35,11 @@ const Boost = () => {
         <h2 className="text-3xl md:text-4xl font-bold mb-6">
           Boost your links today
         </h2>
-        <button className="bg-[#2BD0D0] text-white px-8 py-3 rounded-full hover:bg-opacity-70 transition-colors font-bold">
-          Get Started
-        </button>
+        <Link href="#shortener">
+          <button className="bg-[#2BD0D0] text-white px-8 py-3 rounded-full hover:bg-opacity-70 transition-colors font-bold">
+            Get Started
+          </button>
+        </Link>
       </div>
     </section>
   );

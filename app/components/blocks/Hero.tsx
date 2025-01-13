@@ -3,10 +3,11 @@ import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import illustrationWorking from "../../images/illustration-working.svg";
+import Link from "next/link";
 
 const Hero = () => {
   return (
-    <section className="md:pb-20">
+    <section id="shortener" className="md:pb-20">
       <div className="flex flex-col-reverse md:flex-row md:items-center md:justify-around">
         {/* Text Content */}
         <div className="md:w-1/2 flex justify-center px-5 xl:px-24">
@@ -33,6 +34,7 @@ const Hero = () => {
               Build your brand&apos;s recognition and get detailed insights on
               how your links are performing.
             </motion.p>
+            <Link href="#enterUrl">
             <motion.button
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -43,6 +45,7 @@ const Hero = () => {
             >
               Get Started
             </motion.button>
+            </Link>
           </motion.div>
         </div>
 
