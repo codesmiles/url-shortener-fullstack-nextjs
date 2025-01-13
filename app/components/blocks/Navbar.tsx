@@ -69,23 +69,23 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex md:items-center md:w-full md:justify-between md:ml-10">
             <div className="flex space-x-8">
-              <Link href="#" className="text-gray-500 hover:text-gray-900">
+              <Link href="/features" className="text-gray-500 hover:text-gray-900">
                 Features
               </Link>
-              <Link href="#" className="text-gray-500 hover:text-gray-900">
+              <Link href="/pricing" className="text-gray-500 hover:text-gray-900">
                 Pricing
               </Link>
-              <Link href="#" className="text-gray-500 hover:text-gray-900">
+              <Link href="/resources" className="text-gray-500 hover:text-gray-900">
                 Resources
               </Link>
             </div>
 
             <div className="flex items-center space-x-4">
-              <Link href="#" className="text-gray-500 hover:text-gray-900">
+              <Link href="/login" className="text-gray-500 hover:text-gray-900">
                 Login
               </Link>
               <Link
-                href="#"
+                href="/signup"
                 className="bg-[#2BD0D0] text-white px-6 py-2 rounded-full hover:bg-opacity-70 transition-colors"
               >
                 Sign Up
@@ -110,7 +110,7 @@ const Navbar = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 }}
                 >
-                  <Link href="#" className="py-2 hover:text-gray-300">
+                  <Link href="/features" className="py-2 hover:text-gray-300">
                     Features
                   </Link>
                 </motion.div>
@@ -119,7 +119,7 @@ const Navbar = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
                 >
-                  <Link href="#" className="py-2 hover:text-gray-300">
+                  <Link href="/pricing" className="py-2 hover:text-gray-300">
                     Pricing
                   </Link>
                 </motion.div>
@@ -128,7 +128,7 @@ const Navbar = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 }}
                 >
-                  <Link href="#" className="py-2 hover:text-gray-300">
+                  <Link href="/resources" className="py-2 hover:text-gray-300">
                     Resources
                   </Link>
                 </motion.div>
@@ -138,7 +138,7 @@ const Navbar = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4 }}
                 >
-                  <Link href="#" className="py-2 hover:text-gray-300">
+                  <Link href="/login" className="py-2 hover:text-gray-300">
                     Login
                   </Link>
                 </motion.div>
@@ -148,7 +148,7 @@ const Navbar = () => {
                   transition={{ delay: 0.5 }}
                 >
                   <Link
-                    href="#"
+                    href="/signup"
                     className="bg-[#2BD0D0] text-white py-2 rounded-full hover:bg-opacity-70 transition-colors block"
                   >
                     Sign Up
