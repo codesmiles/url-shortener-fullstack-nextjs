@@ -18,7 +18,7 @@ const Statistics = () => {
   const handleNewLink = (original: string, shortened: string) => {
     setShortenedLinks((prev) => [{ original, shortened }, ...prev]);
   };
-  
+
   const handleCopyLink = (link: string) => {
     navigator.clipboard.writeText(link);
     setCopyText("Copied");

@@ -37,7 +37,7 @@ const Navbar = () => {
       <div className="max-w-6xl mx-auto relative">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <div className="text-2xl font-bold">
+          <div style={{ fontSize: "2rem" }} className="font-bold">
             <Link href="/">Shortly</Link>
           </div>
 

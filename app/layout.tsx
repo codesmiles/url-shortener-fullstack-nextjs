@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
+import Link from "next/link"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,10 +26,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <title>Frontend Mentor | Shortly URL shortening API Challenge</title>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        <div className="attribution">
+          Challenge by{" "}
+          <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">
+            Frontend Mentor
+          </a>
+          . Coded by{" "}
+          <Link href="https://www.github.com/codesmiles">
+            Nwogu Michael &quot;codesmiles&quot;
+          </Link>
+          .
+        </div>
         <Toaster />
       </body>
     </html>

@@ -88,6 +88,9 @@
   line-height: 2.5rem;
 }
 
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
+
 @media screen and (min-width: 1024px) {
   .hero_heading {
     font-size: 3.75rem; /* text-6xl = 60px = 3.75rem */
