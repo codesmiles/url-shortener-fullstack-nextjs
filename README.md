@@ -36,7 +36,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Github Repository](https://github.com/codesmiles/url-shortener-fullstack-nextjs)
-- Live Site URL: [Url Shortener](https://url-shortener-fullstack-nextjs-2wza.vercel.app/)
+- Live Site URL: [Url Shortener](https://url-shortener-fullstack-nextjs.vercel.app/)
 
 ## My process
 
